@@ -6,7 +6,7 @@ import ColourBlind from "./colourblind";
 
 function App() {
   return (
-    <main>
+    <main className="p-12">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
