@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@brighthr/component-button": "^3.0.1",
     "@brighthr/component-input": "^3.0.1",
+    "@brighthr/component-listtypeahead": "^4.0.1",
     "@brighthr/component-select": "^2.0.2",
     "@brighthr/component-typeahead": "^5.0.1",
     "@brighthr/tailwind-config": "^2.0.1",
