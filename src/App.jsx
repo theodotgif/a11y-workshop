@@ -2,7 +2,7 @@ import { Routes, Route } from "react-router";
 import "./App.css";
 import Home from "./home";
 import Form from "./form";
-import ColourBlind from "./colourblind";
+import SportPage from "./sports";
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />
-        <Route path="/colourblind" element={<ColourBlind />} />
+        <Route path="/sports" element={<SportPage />} />
       </Routes>
     </main>
   );
