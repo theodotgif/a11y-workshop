@@ -1,9 +1,15 @@
+/* eslint-disable react/prop-types */
 import { useState } from "react";
 import typeaheadItems from "../../assets/countryList";
 import Typeahead from "@brighthr/component-typeahead";
 
 // eslint-disable-next-line react/prop-types
-const CustomTypeahead = ({ formValues, setFormValues }) => {
+const CustomTypeahead = ({
+  formValues,
+  setFormValues,
+  formIsValid,
+  validator,
+}) => {
   const [typeaheadFilterValue, setTypeaheadFilterValue] = useState("");
   const typeaheadItemsFiltered = typeaheadItems.filter((item) =>
     item.toLowerCase().includes(typeaheadFilterValue.toLowerCase())
@@ -21,9 +27,10 @@ const CustomTypeahead = ({ formValues, setFormValues }) => {
         filterValue={typeaheadFilterValue}
         setFilterValue={setTypeaheadFilterValue}
         // eslint-disable-next-line react/prop-types
-        value={formValues.country}
+        value={formValues.address.country}
         placeholder="Select your country..."
         closeOnChange
+        hasError={formIsValid.address.country}
       >
         <>
           <option
@@ -33,8 +40,9 @@ const CustomTypeahead = ({ formValues, setFormValues }) => {
               e.preventDefault();
               setFormValues({
                 ...formValues,
-                country: "",
+                address: { ...formValues.address, country: "" },
               });
+              validator("country");
             }}
           >
             No country
@@ -48,8 +56,9 @@ const CustomTypeahead = ({ formValues, setFormValues }) => {
                   e.preventDefault();
                   setFormValues({
                     ...formValues,
-                    country: e.target.value,
+                    address: { ...formValues.address, country: e.target.value },
                   });
+                  validator("country");
                 }}
               >
                 {item}

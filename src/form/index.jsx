@@ -12,7 +12,18 @@ const Form = () => {
     lastName: "",
     team: "",
     age: "",
-    country: "",
+    address: {
+      country: "",
+      firstLine: "",
+      secondLine: "",
+      city: "",
+      postCode: "",
+    },
+  });
+  const [formIsValid, setFormIsValid] = useState({
+    firstName: false,
+    lastName: false,
+    address: { country: false, firstLine: false, city: false, postCode: false },
   });
 
   const selectOptions = [
@@ -24,9 +35,28 @@ const Form = () => {
     "56 - 65",
     "65+",
   ];
-  const countrySelected = formValues.country !== "";
 
-  console.log(formValues);
+  const validator = (field) => {
+    if (["firstName", "lastName"].includes(field)) {
+      if (formValues[field]) {
+        setFormIsValid({ ...formIsValid, [field]: true });
+      } else {
+        setFormIsValid({ ...formIsValid, [field]: false });
+      }
+    } else {
+      if (formValues.address[field]) {
+        setFormIsValid({
+          ...formIsValid,
+          address: { ...formIsValid.address, [field]: true },
+        });
+      } else {
+        setFormIsValid({
+          ...formIsValid,
+          address: { ...formIsValid.address, [field]: false },
+        });
+      }
+    }
+  };
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -53,17 +83,21 @@ const Form = () => {
               value={formValues.firstName}
               onChange={(e) => {
                 setFormValues({ ...formValues, firstName: e.target.value });
+                validator("firstName");
               }}
               required
+              error={formIsValid.firstName}
             />
             <Input
               label="Last Name"
-              placeholder="Blogs..."
+              placeholder="Bloggs..."
               value={formValues.lastName}
               onChange={(e) => {
                 setFormValues({ ...formValues, lastName: e.target.value });
+                validator("lastName");
               }}
               required
+              error={formIsValid.lastName}
             />
           </div>
           <CustomListTypeahead
@@ -84,13 +118,68 @@ const Form = () => {
           <CustomTypeahead
             formValues={formValues}
             setFormValues={setFormValues}
+            formIsValid={formIsValid}
+            validator={validator}
           />
-          {countrySelected && (
+          {formValues.address.country === "United Kingdom" && (
             <div className="flex flex-col-reverse gap-5">
-              <Input label="Postal/zip code" required />
-              <Input label="City/town" required />
-              <Input label="2nd Line of Address" />
-              <Input label="1st Line of Address" required />
+              <Input
+                label="Post code"
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    address: {
+                      ...formValues.address,
+                      postCode: e.target.value,
+                    },
+                  });
+                  validator("postCode");
+                }}
+                required
+                error={formIsValid.address.postCode}
+              />
+              <Input
+                label="City/town"
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    address: {
+                      ...formValues.address,
+                      city: e.target.value,
+                    },
+                  });
+                  validator("city");
+                }}
+                required
+                error={formIsValid.address.city}
+              />
+              <Input
+                label="2nd Line of Address"
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    address: {
+                      ...formValues.address,
+                      secondLine: e.target.value,
+                    },
+                  });
+                }}
+              />
+              <Input
+                label="1st Line of Address"
+                onChange={(e) => {
+                  setFormValues({
+                    ...formValues,
+                    address: {
+                      ...formValues.address,
+                      firstLine: e.target.value,
+                    },
+                  });
+                  validator("firstLine");
+                }}
+                required
+                error={formIsValid.address.firstLine}
+              />
             </div>
           )}
           <Button text="Submit" className="self-center w-1/3" />
