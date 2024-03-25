@@ -23,9 +23,11 @@ const SportsPage = () => {
             Originating in Japan, Bo-taoshi is a unique and intense team sport
             often played as part of school festivals. The objective is simple
             yet challenging: each team aims to lower the opposing team&apos;s
-            pole while defending their own. With players divided into attackers
-            and defenders, Bo-taoshi requires strategy, coordination, and
-            physical prowess.
+            pole while defending their own. With{" "}
+            <Link to={"/bo-taoshi"} tabIndex={-1}>
+              players divided into attackers and defenders
+            </Link>
+            , Bo-taoshi requires strategy, coordination, and physical prowess.
           </p>
           <p>
             The chaotic nature of Bo-taoshi makes it a thrilling spectacle to
@@ -46,8 +48,11 @@ const SportsPage = () => {
           </p>
           <p>
             The fast-paced nature of Kabaddi, coupled with its emphasis on
-            agility and strength, makes it a riveting sport to watch, drawing
-            huge crowds during major tournaments.
+            agility and strength, makes it a{" "}
+            <Link to={"/sports/kabaddi"} tabIndex={-1}>
+              riveting sport to watch
+            </Link>
+            , drawing huge crowds during major tournaments.
           </p>
         </div>
 
@@ -57,9 +62,12 @@ const SportsPage = () => {
             Korfball is a mixed-gender team sport that originated in the
             Netherlands in the early 20th century. Similar to basketball and
             netball, Korfball features two teams aiming to score points by
-            shooting a ball through a raised hoop. What sets Korfball apart is
-            its unique rule that prohibits players from shooting if they are
-            being defended by a member of the opposite sex.
+            shooting a ball through a raised hoop. What sets{" "}
+            <Link to={"/korfball"} tabIndex={-1}>
+              Korfball
+            </Link>
+            K apart is its unique rule that prohibits players from shooting if
+            they are being defended by a member of the opposite sex.
           </p>
           <p>
             Korfball promotes teamwork, cooperation, and gender equality on the
@@ -79,7 +87,10 @@ const SportsPage = () => {
           </p>
           <p>
             The acrobatic displays and lightning-fast reflexes exhibited by
-            Sepak Takraw players make it a visually stunning and captivating
+            Sepak Takraw players make it a visually stunning and{" "}
+            <Link to={"/sports/sepaktakraw"} tabIndex={-1}>
+              captivating{" "}
+            </Link>{" "}
             sport to watch, showcasing the athleticism and agility of its
             participants.
           </p>
