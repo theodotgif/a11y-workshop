@@ -59,8 +59,6 @@ const Form = () => {
     }
   };
 
-  console.log(formValues, formHasErrors);
-
   return (
     <div className="flex flex-col items-center w-full">
       <Link
@@ -124,12 +122,17 @@ const Form = () => {
               <option key={option}>{option}</option>
             ))}
           </Select>
-          <CustomTypeahead
-            formValues={formValues}
-            setFormValues={setFormValues}
-            formHasErrors={formHasErrors}
-            validator={validator}
-          />
+          <div>
+            <CustomTypeahead
+              formValues={formValues}
+              setFormValues={setFormValues}
+              formHasErrors={formHasErrors}
+              validator={validator}
+            />
+            <p className="mt-1 text-xs text-neutral-400">
+              Please select United Kingdom to complete the form
+            </p>
+          </div>
           {formValues.address.country === "United Kingdom" && (
             <div className="flex flex-col-reverse gap-5">
               <Input
@@ -191,7 +194,18 @@ const Form = () => {
               />
             </div>
           )}
-          <Button text="Submit" className="self-center w-1/3" />
+          <Button
+            text="Submit"
+            className="self-center w-1/3"
+            disabled={
+              !formValues.firstName &&
+              !formValues.lastName &&
+              !formValues.address.country &&
+              !formValues.address.firstLine &&
+              !formValues.address.city &&
+              !formValues.address.postCode
+            }
+          />
         </form>
       </section>
     </div>
