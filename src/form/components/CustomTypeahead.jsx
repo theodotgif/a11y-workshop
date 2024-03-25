@@ -7,7 +7,7 @@ import Typeahead from "@brighthr/component-typeahead";
 const CustomTypeahead = ({
   formValues,
   setFormValues,
-  formIsValid,
+  formHasErrors,
   validator,
 }) => {
   const [typeaheadFilterValue, setTypeaheadFilterValue] = useState("");
@@ -30,7 +30,7 @@ const CustomTypeahead = ({
         value={formValues.address.country}
         placeholder="Select your country..."
         closeOnChange
-        hasError={formIsValid.address.country}
+        hasError={formHasErrors.address.country}
       >
         <>
           <option
@@ -38,11 +38,11 @@ const CustomTypeahead = ({
             key={"No country"}
             onClick={(e) => {
               e.preventDefault();
-              setFormValues({
-                ...formValues,
-                address: { ...formValues.address, country: "" },
-              });
-              validator("country");
+              setFormValues((prev) => ({
+                ...prev,
+                address: { ...prev.address, country: "" },
+              }));
+              validator("country", "");
             }}
           >
             No country
@@ -54,11 +54,11 @@ const CustomTypeahead = ({
                 key={item}
                 onClick={(e) => {
                   e.preventDefault();
-                  setFormValues({
-                    ...formValues,
-                    address: { ...formValues.address, country: e.target.value },
-                  });
-                  validator("country");
+                  setFormValues((prev) => ({
+                    ...prev,
+                    address: { ...prev.address, country: e.target.value },
+                  }));
+                  validator("country", e.target.value);
                 }}
               >
                 {item}

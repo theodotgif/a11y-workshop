@@ -20,7 +20,7 @@ const Form = () => {
       postCode: "",
     },
   });
-  const [formIsValid, setFormIsValid] = useState({
+  const [formHasErrors, setFormHasErrors] = useState({
     firstName: false,
     lastName: false,
     address: { country: false, firstLine: false, city: false, postCode: false },
@@ -36,27 +36,30 @@ const Form = () => {
     "65+",
   ];
 
-  const validator = (field) => {
+  const validator = (field, input) => {
     if (["firstName", "lastName"].includes(field)) {
-      if (formValues[field]) {
-        setFormIsValid({ ...formIsValid, [field]: true });
+      if (input) {
+        setFormHasErrors((prev) => ({ ...prev, [field]: false }));
       } else {
-        setFormIsValid({ ...formIsValid, [field]: false });
+        console.log("hello");
+        setFormHasErrors((prev) => ({ ...prev, [field]: true }));
       }
     } else {
-      if (formValues.address[field]) {
-        setFormIsValid({
-          ...formIsValid,
-          address: { ...formIsValid.address, [field]: true },
-        });
+      if (input) {
+        setFormHasErrors((prev) => ({
+          ...prev,
+          address: { ...prev.address, [field]: false },
+        }));
       } else {
-        setFormIsValid({
-          ...formIsValid,
-          address: { ...formIsValid.address, [field]: false },
-        });
+        setFormHasErrors((prev) => ({
+          ...prev,
+          address: { ...prev.address, [field]: true },
+        }));
       }
     }
   };
+
+  console.log(formValues, formHasErrors);
 
   return (
     <div className="flex flex-col items-center w-full">
@@ -82,22 +85,28 @@ const Form = () => {
               placeholder="Joe..."
               value={formValues.firstName}
               onChange={(e) => {
-                setFormValues({ ...formValues, firstName: e.target.value });
-                validator("firstName");
+                setFormValues((prev) => ({
+                  ...prev,
+                  firstName: e.target.value,
+                }));
+                validator("firstName", e.target.value);
               }}
               required
-              error={formIsValid.firstName}
+              error={formHasErrors.firstName}
             />
             <Input
               label="Last Name"
               placeholder="Bloggs..."
               value={formValues.lastName}
               onChange={(e) => {
-                setFormValues({ ...formValues, lastName: e.target.value });
-                validator("lastName");
+                setFormValues((prev) => ({
+                  ...prev,
+                  lastName: e.target.value,
+                }));
+                validator("lastName", e.target.value);
               }}
               required
-              error={formIsValid.lastName}
+              error={formHasErrors.lastName}
             />
           </div>
           <CustomListTypeahead
@@ -107,7 +116,7 @@ const Form = () => {
           <Select
             label="Age"
             onChange={(e) => {
-              setFormValues({ ...formValues, age: e.target.value });
+              setFormValues((prev) => ({ ...prev, age: e.target.value }));
             }}
             className="focus-visible:border-neutral-300"
           >
@@ -118,7 +127,7 @@ const Form = () => {
           <CustomTypeahead
             formValues={formValues}
             setFormValues={setFormValues}
-            formIsValid={formIsValid}
+            formHasErrors={formHasErrors}
             validator={validator}
           />
           {formValues.address.country === "United Kingdom" && (
@@ -133,52 +142,52 @@ const Form = () => {
                       postCode: e.target.value,
                     },
                   });
-                  validator("postCode");
+                  validator("postCode", e.target.value);
                 }}
                 required
-                error={formIsValid.address.postCode}
+                error={formHasErrors.address.postCode}
               />
               <Input
                 label="City/town"
                 onChange={(e) => {
-                  setFormValues({
-                    ...formValues,
+                  setFormValues((prev) => ({
+                    ...prev,
                     address: {
-                      ...formValues.address,
+                      ...prev.address,
                       city: e.target.value,
                     },
-                  });
-                  validator("city");
+                  }));
+                  validator("city", e.target.value);
                 }}
                 required
-                error={formIsValid.address.city}
+                error={formHasErrors.address.city}
               />
               <Input
                 label="2nd Line of Address"
                 onChange={(e) => {
-                  setFormValues({
-                    ...formValues,
+                  setFormValues((prev) => ({
+                    ...prev,
                     address: {
-                      ...formValues.address,
+                      ...prev.address,
                       secondLine: e.target.value,
                     },
-                  });
+                  }));
                 }}
               />
               <Input
                 label="1st Line of Address"
                 onChange={(e) => {
-                  setFormValues({
-                    ...formValues,
+                  setFormValues((prev) => ({
+                    ...prev,
                     address: {
-                      ...formValues.address,
+                      ...prev.address,
                       firstLine: e.target.value,
                     },
-                  });
-                  validator("firstLine");
+                  }));
+                  validator("firstLine", e.target.value);
                 }}
                 required
-                error={formIsValid.address.firstLine}
+                error={formHasErrors.address.firstLine}
               />
             </div>
           )}

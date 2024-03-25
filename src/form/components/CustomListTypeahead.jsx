@@ -14,10 +14,10 @@ const CustomListTypeahead = ({ formValues, setFormValues }) => {
         setSelectedItems={(e) => {
           if (formValues.team === e[0].id) {
             setSelectedItems([]);
-            setFormValues({ ...formValues, team: "" });
+            setFormValues((prev) => ({ ...prev, team: "" }));
           } else {
             setSelectedItems(e);
-            setFormValues({ ...formValues, team: e[0].id });
+            setFormValues((prev) => ({ ...prev, team: e[0].id }));
           }
         }}
         options={[
