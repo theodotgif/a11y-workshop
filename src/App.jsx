@@ -7,6 +7,7 @@ import BotaoshiPage from "./sports/botaoshi";
 import KabaddiPage from "./sports/kabaddi";
 import KorfballPage from "./sports/korfball";
 import SepakTakrawPage from "./sports/sepaktakraw";
+import SurprisePage from "./sports/surprise";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/sports/kabaddi" element={<KabaddiPage />} />
         <Route path="/korfball" element={<KorfballPage />} />
         <Route path="/sports/sepaktakraw" element={<SepakTakrawPage />} />
+        <Route path="/surprise" element={<SurprisePage />} />
       </Routes>
     </main>
   );
