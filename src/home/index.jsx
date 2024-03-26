@@ -2,17 +2,19 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <>
-      <h1>Home</h1>
-      <div className="flex gap-4 underline text-blue-600">
+    <section className="flex flex-col items-center justify-center h-screen gap-6">
+      <h1 className="text-2xl font-semibold">
+        BrightHR A11y Workshop - 26/03/2024
+      </h1>
+      <div className="flex gap-6 text-lg text-blue-600 underline">
         <Link to="/form" className="hover:text-blue-900">
-          Form
+          Bad Form
         </Link>
-        <Link to="/colourblind" className="hover:text-blue-900">
-          Colour Blind
+        <Link to="/sports" className="hover:text-blue-900">
+          Colour Blindness
         </Link>
       </div>
-    </>
+    </section>
   );
 };
 
