@@ -11,21 +11,22 @@ const SportsPage = () => {
           Unusual Sports Around the World
         </h1>
         <p className="mb-6 text-lg">
-          In a world filled with popular sports like football, cricket, and
-          basketball (no, really), there are some lesser-known sports that are
-          equally fascinating and exciting. Let&apos;s explore a few of these
-          unusual sports from different corners of the globe.
+          <strong>In a world </strong>filled with popular sports like football,
+          cricket, and basketball (no, really), there are some lesser-known
+          sports that are equally fascinating and exciting. Let&apos;s explore a
+          few of these unusual sports from different corners of the globe.
         </p>
 
         <div className="mb-8">
           <h2 className="mb-4 text-2xl font-semibold">Bo-taoshi</h2>
           <p className="mb-2">
-            Originating in Japan, Bo-taoshi is a unique and intense team sport
-            often played as part of school festivals. The objective is simple
-            yet challenging: each team aims to lower the opposing team&apos;s
-            pole while defending their own. With{" "}
-            <Link to={"/bo-taoshi"} tabIndex={-1}>
-              players divided into attackers and defenders
+            <strong>Originating in Japan</strong>, Bo-taoshi is a unique and
+            intense team sport often played as part of school festivals. The
+            objective is simple yet challenging: each team aims to lower the
+            opposing team&apos;s pole while defending their own. With players
+            divided into{" "}
+            <Link to={"/bo-taoshi"} tabIndex={-1} className="text-blue-700">
+              attackers and defenders
             </Link>
             , Bo-taoshi requires strategy, coordination, and physical prowess.
           </p>
@@ -39,8 +40,10 @@ const SportsPage = () => {
         <div className="mb-8">
           <h2 className="mb-4 text-2xl font-semibold">Kabaddi</h2>
           <p className="mb-2">
-            Kabaddi, often referred to as the &apos;game of struggle,&apos; is a
-            traditional sport popular in South Asia, particularly in India.
+            <strong>
+              Kabaddi, often referred to as the &apos;game of struggle,&apos;
+            </strong>{" "}
+            is a traditional sport popular in South Asia, particularly in India.
             Combining elements of wrestling, tag, and endurance, Kabaddi is
             played between two teams, each taking turns to send a player into
             the opponent&apos;s half to tag as many defenders as possible
@@ -49,24 +52,28 @@ const SportsPage = () => {
           <p>
             The fast-paced nature of Kabaddi, coupled with its emphasis on
             agility and strength, makes it a{" "}
-            <Link to={"/sports/kabaddi"} tabIndex={-1}>
-              riveting sport to watch
-            </Link>
-            , drawing huge crowds during major tournaments.
+            <Link
+              to={"/sports/kabaddi"}
+              tabIndex={-1}
+              className="text-blue-700"
+            >
+              riveting sport
+            </Link>{" "}
+            to watch, drawing huge crowds during major tournaments.
           </p>
         </div>
 
         <div className="mb-8">
           <h2 className="mb-4 text-2xl font-semibold">Korfball</h2>
           <p className="mb-2">
-            Korfball is a mixed-gender team sport that originated in the
-            Netherlands in the early 20th century. Similar to basketball and
-            netball, Korfball features two teams aiming to score points by
-            shooting a ball through a raised hoop. What sets{" "}
-            <Link to={"/korfball"} tabIndex={-1}>
+            <strong>Korfball is a mixed-gender</strong> team sport that
+            originated in the Netherlands in the early 20th century. Similar to
+            basketball and netball, Korfball features two teams aiming to score
+            points by shooting a ball through a raised hoop. What sets{" "}
+            <Link to={"/korfball"} tabIndex={-1} className="text-blue-700">
               Korfball
-            </Link>
-            K apart is its unique rule that prohibits players from shooting if
+            </Link>{" "}
+            apart is its unique rule that prohibits players from shooting if
             they are being defended by a member of the opposite sex.
           </p>
           <p>
@@ -79,16 +86,20 @@ const SportsPage = () => {
         <div className="mb-8">
           <h2 className="mb-4 text-2xl font-semibold">Sepak Takraw</h2>
           <p className="mb-2">
-            Hailing from Southeast Asia, Sepak Takraw is a high-energy sport
-            that combines elements of football, volleyball, and martial arts.
-            Played with a rattan ball, teams of three players attempt to keep
-            the ball off the ground and volley it over a net using only their
-            feet, knees, chest, and head.
+            <strong>Hailing from Southeast Asia</strong>, Sepak Takraw is a
+            high-energy sport that combines elements of football, volleyball,
+            and martial arts. Played with a rattan ball, teams of three players
+            attempt to keep the ball off the ground and volley it over a net
+            using only their feet, knees, chest, and head.
           </p>
           <p>
             The acrobatic displays and lightning-fast reflexes exhibited by
             Sepak Takraw players make it a visually stunning and{" "}
-            <Link to={"/sports/sepaktakraw"} tabIndex={-1}>
+            <Link
+              to={"/sports/sepaktakraw"}
+              tabIndex={-1}
+              className="text-blue-700"
+            >
               captivating{" "}
             </Link>{" "}
             sport to watch, showcasing the athleticism and agility of its
@@ -100,8 +111,12 @@ const SportsPage = () => {
           These are just a few examples of the many unusual sports enjoyed by
           people around the world. Whether it&apos;s the frenetic action of
           Bo-taoshi, the strategic gameplay of Korfball, or the sheer
-          athleticism of Sepak Takraw, these sports offer a glimpse into the
-          rich diversity of athletic pursuits across different cultures.
+          athleticism of Sepak Takraw, these sports offer a{" "}
+          <Link to="/surprise" tabIndex={-1} className="cursor-text">
+            glimpse
+          </Link>{" "}
+          into the rich diversity of athletic pursuits across different
+          cultures.
         </p>
       </div>
     </div>
