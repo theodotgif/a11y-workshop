@@ -1,8 +1,14 @@
+import config from "@brighthr/tailwind-config";
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@brighthr/*/dist/**/*.js",
+  ],
   theme: {
-    extend: {},
+    extend: { ...config },
   },
   plugins: [],
 };
