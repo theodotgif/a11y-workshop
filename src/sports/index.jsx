@@ -24,11 +24,11 @@ const SportsPage = () => {
             intense team sport often played as part of school festivals. The
             objective is simple yet challenging: each team aims to lower the
             opposing team&apos;s pole while defending their own. With players
-            divided into{" "}
+            divided into attackers and defenders , Bo-taoshi{" "}
             <Link to={"/bo-taoshi"} tabIndex={-1} className="text-blue-700">
-              attackers and defenders
-            </Link>
-            , Bo-taoshi requires strategy, coordination, and physical prowess.
+              requires
+            </Link>{" "}
+            strategy, coordination, and physical prowess.
           </p>
           <p>
             The chaotic nature of Bo-taoshi makes it a thrilling spectacle to
@@ -112,7 +112,11 @@ const SportsPage = () => {
           people around the world. Whether it&apos;s the frenetic action of
           Bo-taoshi, the strategic gameplay of Korfball, or the sheer
           athleticism of Sepak Takraw, these sports offer a{" "}
-          <Link to="/surprise" tabIndex={-1} className="cursor-text">
+          <Link
+            to="/surprise"
+            tabIndex={-1}
+            className="text-blue-700 cursor-text"
+          >
             glimpse
           </Link>{" "}
           into the rich diversity of athletic pursuits across different
