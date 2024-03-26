@@ -11,7 +11,7 @@ import SurprisePage from "./sports/surprise";
 
 function App() {
   return (
-    <main className="p-12">
+    <main className="">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/form" element={<Form />} />

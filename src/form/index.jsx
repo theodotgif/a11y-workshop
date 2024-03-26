@@ -60,7 +60,7 @@ const Form = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex flex-col items-center w-full p-12">
       <Link
         to="/"
         className="self-start text-blue-600 underline hover:text-blue-900"

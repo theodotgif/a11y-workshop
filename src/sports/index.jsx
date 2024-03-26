@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const SportsPage = () => {
   return (
-    <div>
+    <div className="p-12">
       <Link to="/" className="text-blue-600 underline hover:text-blue-900">
         Home
       </Link>
