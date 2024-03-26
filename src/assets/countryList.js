@@ -196,6 +196,7 @@ export default [
   "Ukraine",
   "United Arab Emirates",
   "United Kingdom",
+  "United States of America",
   "Uruguay",
   "Uzbekistan",
   "Venezuela",

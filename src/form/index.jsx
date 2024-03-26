@@ -130,13 +130,13 @@ const Form = () => {
               validator={validator}
             />
             <p className="mt-1 text-xs text-neutral-400">
-              Please select United Kingdom to complete the form
+              Please select USA to complete the form
             </p>
           </div>
-          {formValues.address.country === "United Kingdom" && (
+          {formValues.address.country === "United States of America" && (
             <div className="flex flex-col-reverse gap-5">
               <Input
-                label="Post code"
+                label="Post/Zip code"
                 onChange={(e) => {
                   setFormValues({
                     ...formValues,
@@ -198,12 +198,14 @@ const Form = () => {
             text="Submit"
             className="self-center w-1/3"
             disabled={
-              !formValues.firstName &&
-              !formValues.lastName &&
-              !formValues.address.country &&
-              !formValues.address.firstLine &&
-              !formValues.address.city &&
-              !formValues.address.postCode
+              !formValues.firstName ||
+              !formValues.lastName ||
+              !formValues.address.country ||
+              !formValues.address.firstLine ||
+              !formValues.address.postCode ||
+              !formValues.address.city
+                ? true
+                : false
             }
           />
         </form>
