@@ -130,7 +130,7 @@ const Form = () => {
               validator={validator}
             />
             <p className="mt-1 text-xs text-neutral-400">
-              Please select USA to complete the form
+              Please select United States of America to complete the form
             </p>
           </div>
           {formValues.address.country === "United States of America" && (
