@@ -65,8 +65,8 @@ const SportsPage = () => {
             shooting a ball through a raised hoop. What sets{" "}
             <Link to={"/korfball"} tabIndex={-1}>
               Korfball
-            </Link>
-            K apart is its unique rule that prohibits players from shooting if
+            </Link>{" "}
+            apart is its unique rule that prohibits players from shooting if
             they are being defended by a member of the opposite sex.
           </p>
           <p>
@@ -89,9 +89,9 @@ const SportsPage = () => {
             The acrobatic displays and lightning-fast reflexes exhibited by
             Sepak Takraw players make it a visually stunning and{" "}
             <Link to={"/sports/sepaktakraw"} tabIndex={-1}>
-              captivating{" "}
+              captivating sport
             </Link>{" "}
-            sport to watch, showcasing the athleticism and agility of its
+            to watch, showcasing the athleticism and agility of its
             participants.
           </p>
         </div>
